@@ -4,14 +4,21 @@
     <title>Amount of Time Dhruv Has Not Gotten Java Edition</title>
   </head>
   <body>
-    <p>Amount of Time (seconds) Dhruv Has Not Gotten Java Edition: <span></span></p>
+    <p>Amount of Time Dhruv Has Not Gotten Java Edition: <span></span></p>
     <script>
       window.onerror = (msg, othervar1, othervar2, othervar3, err) => {
         alert(err.stack);
       }
       
       setInterval(() => {
-        document.querySelector('span').innerText = (Date.now() - 1568656662632) / 1000;
+        var ms = Date.now() - 1568656662632;
+        var minutes = Math.floor(ms / 60);
+        ms = ms % 60;
+        var hours = Math.floor(minutes / 60);
+        minutes % 60;
+        var days = Math.floor(hours / 24);
+        days = hours % 24;
+        document.querySelector('span').innerText = `${days} days, ${hours} hours, ${minutes} minutes, ${ms / 1000} seconds.`;
       }, 1);
     </script>
   </body>
